@@ -111,7 +111,7 @@ const Hero = () => {
                                 <img src={heroImage} alt="Dambulla Landscapes" />
                             </div>
 
-                            {weather && weather.weather.length > 0 ? (
+                            {weather && weather.weather?.[0] ? (
                                 <motion.div
                                     className="weather_glass_card"
                                     initial={{ opacity: 0, x: 50 }}
