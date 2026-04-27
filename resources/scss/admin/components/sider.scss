@@ -1,0 +1,210 @@
+@use "../layout/variable";
+
+$transition-speed: 0.35s;
+
+.sider {
+    background-color: variable.$primary_color;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    gap: 40px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: width $transition-speed cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.open {
+        width: 260px;
+    }
+
+    .profile_details,
+    .name,
+    .user_name {
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .main_lable_link_gorup {
+        font-size: 0.65rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        padding: 5px 15px;
+        color: grey;
+        text-transform: uppercase;
+        border-bottom: solid 1px rgba(variable.$assect_color, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-10px);
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            padding 0.3s ease;
+    }
+
+    &.open {
+        .profile_details,
+        .name,
+        .user_name {
+            opacity: 1;
+        }
+
+        .main_lable_link_gorup {
+            opacity: 0.6;
+            visibility: visible;
+            transform: translateX(0);
+            display: block;
+        }
+    }
+
+    .admin_profile {
+        display: flex;
+        padding: 0 14px;
+        gap: 15px;
+        align-items: center;
+
+        .profile_picture {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: variable.$info-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                font-size: 1.4rem;
+                color: variable.$primary_color;
+            }
+        }
+
+        .profile_details {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+
+            .email {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: variable.$assect_color;
+                font-family: variable.$font_family_normal;
+            }
+
+            .role {
+                font-size: 0.75rem;
+                color: variable.$info-color;
+                font-weight: 600;
+                font-family: variable.$font_family_logo;
+            }
+        }
+    }
+
+    .link_gorup_container {
+        overflow-x: hidden;
+        overflow-y: auto;
+        flex: 1;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .nav_section {
+        display: flex;
+        flex-direction: column;
+
+        &:not(.sider.open *) {
+            .main_lable_link_gorup {
+                height: 0;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+        }
+
+        .link_gorup {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 0 7px;
+            gap: 8px;
+            overflow-x: hidden;
+
+            li {
+                .btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 22px;
+                    padding: 10.5px 18px;
+                    text-decoration: none;
+                    color: variable.$assect_color;
+                    border-radius: 8px;
+                    transition: background 0.2s;
+                    font-family: variable.$font_family_normal;
+                    font-weight: 400;
+
+                    .icon {
+                        font-size: 1.2rem;
+                        width: 20px;
+                        flex-shrink: 0;
+                    }
+
+                    &:hover {
+                        background-color: rgba(variable.$assect_color, 0.08);
+                    }
+
+                    &.active {
+                        background-color: rgba(variable.$assect_color, 0.15);
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .nav_footer {
+        margin-top: auto;
+        padding: 5px 15px;
+        border-top: 1px solid rgba(variable.$assect_color, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: variable.$accent_glow;
+            padding-left: 5px;
+            margin-top: 10px;
+        }
+
+        .log_out_btn {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 5px;
+            color: #ff4d4d;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                transform: translateX(5px);
+            }
+        }
+    }
+}

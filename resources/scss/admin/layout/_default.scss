@@ -1,0 +1,27 @@
+@use './variable';
+
+h1 {
+    font-size: variable.$line_height_base;
+    color: variable.$assect_color;
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.6rem;
+    padding: 0;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

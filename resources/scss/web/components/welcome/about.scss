@@ -1,0 +1,178 @@
+@use "../../layout/variable";
+
+.about_premium_page {
+    background: #f1f5f9;
+
+    .custom_container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .about_hero {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        color: #fff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: variable.$clr_secondary_light;
+
+            @include variable.md {
+                font-size: 48px;
+            }
+
+            span {
+                color: #10b981;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    }
+
+    .mission_section {
+        padding: 80px 0;
+
+        .mission_grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            align-items: center;
+
+            @include variable.lg {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .mission_text {
+            h2 {
+                font-size: 32px;
+                color: #1e293b;
+                margin-bottom: 25px;
+                font-weight: 800;
+            }
+
+            p {
+                color: #475569;
+                line-height: 1.8;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+        }
+
+        .mission_stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+
+            .stat_card {
+                background: #fff;
+                padding: 30px;
+                border-radius: 24px;
+                text-align: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+
+                svg {
+                    font-size: 30px;
+                    color: #10b981;
+                    margin-bottom: 15px;
+                }
+
+                h3 {
+                    font-size: 28px;
+                    font-weight: 900;
+                    color: #1e293b;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: #64748b;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .why_us_section {
+        padding: 80px 0;
+        background: #fff;
+        border-radius: 60px 60px 0 0;
+
+        .section_header {
+            text-align: center;
+            margin-bottom: 60px;
+
+            h2 {
+                font-size: 32px;
+                color: #1e293b;
+                font-weight: 800;
+            }
+
+            p {
+                color: #10b981;
+                font-weight: 700;
+                margin-top: 5px;
+            }
+        }
+
+        .features_grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+
+            @include variable.md {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .feature_item {
+                padding: 40px;
+                border-radius: 24px;
+                background: #f8fafc;
+                transition: 0.3s;
+
+                &:hover {
+                    background: #f1f5f9;
+                    transform: translateY(-5px);
+                }
+
+                .icon_box {
+                    width: 50px;
+                    height: 50px;
+                    background: #10b981;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 12px;
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                }
+
+                h4 {
+                    font-size: 20px;
+                    font-weight: 800;
+                    color: #1e293b;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    color: #64748b;
+                    line-height: 1.6;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

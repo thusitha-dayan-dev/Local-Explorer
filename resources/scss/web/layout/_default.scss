@@ -1,0 +1,103 @@
+@use "variable";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: variable.$font_heading;
+    color: variable.$clr_primary;
+    line-height: variable.$lh_heading;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: variable.$fs_h1;
+    font-weight: variable.$fw_bold;
+    margin-bottom: variable.$space_md;
+}
+
+h2 {
+    font-size: variable.$fs_h2;
+    font-weight: variable.$fw_semibold;
+    margin-bottom: variable.$space_sm;
+}
+
+h3 {
+    font-size: variable.$fs_h3;
+    font-weight: variable.$fw_medium;
+    margin-bottom: variable.$space_sm;
+}
+
+p {
+    font-size: variable.$fs_body;
+    margin-bottom: variable.$space_sm;
+    color: variable.$txt_main;
+}
+
+small {
+    font-size: variable.$fs_small;
+    color: variable.$txt_muted;
+}
+
+a {
+    text-decoration: none;
+    transition: variable.$transition;
+    color: inherit;
+}
+
+.btn_base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    font-family: variable.$font_heading;
+    font-weight: variable.$fw_semibold;
+    cursor: pointer;
+    transition: variable.$transition;
+    text-align: center;
+
+
+    padding: variable.$btn_pad_mob;
+    font-size: variable.$btn_font_mob;
+
+    @media (min-width: 992px) {
+        padding: variable.$btn_pad_desk;
+        font-size: variable.$btn_font_desk;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.btn_primary {
+    @extend .btn_base;
+    background-color: variable.$clr_primary;
+    color: variable.$txt_white;
+
+    &:hover {
+        background-color: variable.$clr_primary_light;
+        box-shadow: 0 4px 12px rgba(variable.$clr_primary, 0.2);
+    }
+}
+
+
+.btn_secondary {
+    @extend .btn_base;
+    background-color: variable.$clr_secondary;
+    color: variable.$txt_main;
+
+    &:hover {
+        background-color: variable.$clr_secondary_light;
+    }
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

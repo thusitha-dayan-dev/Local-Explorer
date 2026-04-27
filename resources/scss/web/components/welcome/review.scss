@@ -1,0 +1,329 @@
+@use "../../layout/variable";
+
+.review_main_layout {
+    background-color: variable.$bg_section;
+    padding-bottom: 50px;
+    padding-top: 20px;
+
+    .review_main {
+        display: flex;
+        flex-direction: column;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        @include variable.sm {
+            padding: 0 30px;
+        }
+
+        @include variable.xl {
+            padding: 0 30px;
+        }
+
+        .nav_hedder {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(238, 238, 238, 0.5);
+
+            h1 {
+                font-size: 28px;
+                color: #1a1a1a;
+                position: relative;
+                padding-left: 15px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 4px;
+                    height: 25px;
+                    background: #27ae60;
+                    border-radius: 10px;
+                }
+            }
+
+            .detail_box {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 25px;
+                align-items: center;
+
+                .review {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 5px;
+                    background: transparent;
+                    border: none;
+                    font-weight: 600;
+                    color: #10b981;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: variable.$transition;
+
+                    .icon {
+                        font-size: .9rem;
+                    }
+
+                    &:hover {
+                        transform: translateY(-3px);
+                    }
+                }
+
+                .main {
+                    display: none;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+                    color: #828181;
+
+                    @include variable.sm {
+                        display: flex;
+                    }
+                }
+
+                .rate_box {
+                    display: none;
+
+                    @include variable.sm {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+
+                        .star_box {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 3px;
+
+                        }
+
+                        .sub {
+                            font-size: .9rem;
+                            color: #828181;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .reviews_contener {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+            padding-top: 30px;
+
+
+            .review_card {
+                display: flex;
+                flex-direction: column;
+                box-shadow: variable.$shadow_soft;
+                padding-bottom: 20px;
+                gap: 15px;
+
+                background: white;
+                border-radius: 20px;
+                padding: 30px;
+                border: 1px solid #f0f0f0;
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                overflow: hidden;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 6px;
+                    background: #27ae60;
+                    opacity: 0.1;
+                    transition: opacity 0.3s ease;
+                }
+
+                &:hover {
+                    transform: translateX(8px);
+                    border-color: rgba(39, 174, 96, 0.3);
+                    box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.04);
+
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+
+                .card_hedder {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        aspect-ratio: 1/1;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    .pp_box {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 15px;
+                        align-items: center;
+                    }
+
+                    .temp_profile {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        aspect-ratio: 1/1;
+                        border-radius: 50%;
+                        background-color: variable.$clr_primary_light;
+                        color: variable.$bg_section;
+                        width: 35px;
+                        height: 35px;
+                        font-weight: 600;
+                    }
+
+                    .text_box {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .name {
+                        font-family: variable.$font_heading;
+                        font-size: .8rem;
+                        color: #828181;
+                    }
+
+                    .user_type {
+                        font-size: .9rem;
+                        font-weight: 500;
+                    }
+
+                    .creater {
+                        font-size: .8rem;
+                        margin-bottom: auto;
+                    }
+                }
+
+                .card_content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    font-family: variable.$font_heading;
+
+                    .title {
+                        font-weight: 600;
+                        font-size: 1rem;
+                    }
+
+                    .message {
+                        font-size: .9rem;
+
+                        &.close {
+                            display: -webkit-box;
+                            -webkit-line-clamp: 5;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+
+                .media_contener {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 10px;
+
+                    @include variable.sm {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+
+                    @include variable.md {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+
+                    @include variable.lg {
+                        grid-template-columns: repeat(5, 1fr);
+                    }
+
+                    @include variable.xl {
+                        grid-template-columns: repeat(6, 1fr);
+                    }
+
+                    &.close {
+                        display: none;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 5px;
+                        object-fit: cover;
+                        min-height: 100%;
+                    }
+                }
+
+                .more_mg {
+                    color: variable.$clr_primary;
+                    font-family: variable.$font_heading;
+                    font-size: .85rem;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .pagination_container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .page_node {
+                min-width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                border: 1px solid #e2e8f0;
+                background: #fff;
+                font-weight: 700;
+                color: #475569;
+                cursor: pointer;
+                transition: 0.2s;
+
+                @include variable.md {
+                    min-width: 42px;
+                    height: 42px;
+                }
+
+                &.active {
+                    background: #10b981;
+                    color: #fff;
+                    border-color: #10b981;
+                }
+
+                &:hover:not(.active):not(:disabled) {
+                    border-color: #10b981;
+                    color: #10b981;
+                }
+
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

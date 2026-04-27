@@ -1,0 +1,143 @@
+@use "../../layout/variable";
+
+.leaflet-container {
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1;
+}
+
+.trip-map-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+        position: relative;
+        z-index: 10;
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+    }
+
+    @include variable.lg {
+        height: 100%;
+        padding: 20px;
+    }
+
+    .trip-info-card {
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        border: 1px solid #f3f4f6;
+
+        .info-block {
+            display: flex;
+            flex-direction: column;
+
+            .label {
+                font-size: 9px;
+                color: #9ca3af;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .value {
+                font-size: 15px;
+                color: #111827;
+                font-weight: 800;
+            }
+        }
+
+        .divider {
+            width: 1px;
+            height: 30px;
+            background: #e5e7eb;
+        }
+    }
+
+    .custom-marker {
+        .marker-pin {
+            width: 32px;
+            height: 32px;
+            border-radius: 50% 50% 50% 0;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 50%;
+            margin: -16px 0 0 -16px;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+
+            &::after {
+                content: '';
+                width: 12px;
+                height: 12px;
+                margin: 7px 0 0 7px;
+                background: #fff;
+                position: absolute;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .trip-tooltip {
+        background: white !important;
+        border: none !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+        border-radius: 12px !important;
+        padding: 0 !important;
+
+        .tooltip-wrap {
+            display: flex;
+            align-items: center;
+            padding: 6px 12px;
+            gap: 8px;
+
+            .order-no {
+                background: #111827;
+                color: #fff;
+                width: 22px;
+                height: 22px;
+                font-size: 11px;
+                font-weight: 800;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+            }
+
+            .place-name {
+                font-size: 13px;
+                font-weight: 600;
+                color: #374151;
+            }
+        }
+
+        &.place-tip {
+            border-bottom: 4px solid #ef4444 !important;
+        }
+
+        &.service-tip {
+            border-bottom: 4px solid #3b82f6 !important;
+        }
+    }
+
+    .leaflet-routing-container {
+        display: none !important;
+    }
+}

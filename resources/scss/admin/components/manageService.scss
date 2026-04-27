@@ -1,0 +1,533 @@
+@use "../layout/variable";
+
+.page_main_layout {
+    width: 100%;
+    height: 100vh;
+
+    .page_main {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        .page_hedder {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 15px 30px;
+            justify-content: space-between;
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.061);
+
+            .box_layout {
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+
+                h1 {
+                    font-size: 1.7rem;
+                    font-weight: 700;
+                    font-family: variable.$font_family_normal;
+                    text-transform: uppercase;
+                    letter-spacing: 0.002px;
+                }
+
+                .box {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 2px;
+
+                    .link {
+                        text-decoration: none;
+                        font-size: 0.9rem;
+                        color: blue;
+                        font-family: variable.$font_family_normal;
+                        transition: all 1s;
+
+                        &:hover {
+                            color: rgba(5, 5, 255, 0.389);
+                        }
+                    }
+
+                    .icon {
+                        font-size: 0.8rem;
+                    }
+
+                    .sub_link {
+                        font-size: 0.9rem;
+                        font-family: variable.$font_family_normal;
+                    }
+                }
+            }
+
+            .btn {
+                text-decoration: none;
+                color: variable.$primary_color;
+                background-color: variable.$accent_glow;
+                padding: 12px 20px;
+                border-radius: 10px;
+                font-size: 0.9rem;
+                font-family: variable.$font_family_normal;
+                transition: all 1s;
+
+                &:hover {
+                    background-color: rgb(variable.$accent_glow, 0.85);
+                    transform: scale(0.95);
+                }
+            }
+        }
+
+        .page_content_layout {
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            margin: 0 auto;
+            max-width: 1440px;
+            width: 100%;
+            height: 100%;
+            padding: 0px 25px;
+            gap: 30px;
+
+            .service_form {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                width: 100%;
+                height: auto;
+
+                .form_helight_section {
+                    background-color: variable.$primary_color;
+                    padding: 30px 30px;
+                    border-radius: 15px;
+                    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.12);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+
+                    .section_hedder {
+                        display: flex;
+                        align-items: center;
+                        border-bottom: solid 1px rgb(variable.$assect_color, 0.165);
+                        padding-bottom: 15px;
+
+                        h1 {
+                            font-size: variable.$base_section_hedder;
+                            font-family: variable.$font_family_normal;
+                            display: flex;
+                            flex-direction: row;
+                            font-weight: 500;
+                            gap: 10px;
+                            align-items: center;
+                        }
+                    }
+
+                    .input_section {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 35px;
+
+                        .form_input_layout {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 40px;
+                        }
+
+                        .input_group {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+
+                            .lb {
+                                font-family: variable.$font_family_normal;
+                                font-size: 1rem;
+                                color: rgb(variable.$assect_color, 0.7);
+                                font-weight: 400;
+
+                                .op {
+                                    color: variable.$error-red;
+                                }
+                            }
+
+                            .input_holder {
+                                position: relative;
+
+                                .logo {
+                                    position: absolute;
+                                    left: 0;
+                                    padding: 14.5px 10px;
+                                    color: rgba(0, 0, 255, 0.569);
+                                }
+
+                                .length {
+                                    position: absolute;
+                                    right: 10px;
+                                    bottom: 5px;
+                                    font-size: 0.7rem;
+                                    color: rgb(variable.$accent_glow, 0.45);
+                                }
+                            }
+
+                            .selector_holder {
+                                position: relative;
+
+                                input {
+                                    cursor: pointer;
+                                }
+
+                                .togel {
+                                    position: absolute;
+                                    right: 0;
+                                    padding: 15px 10px;
+                                    color: rgba(0, 0, 0, 0.569);
+                                }
+                            }
+
+                            .description_holder {
+                                display: flex;
+                                width: 100%;
+                                position: relative;
+
+                                .length {
+                                    position: absolute;
+                                    right: 5px;
+                                    bottom: 5px;
+                                    font-size: 0.7rem;
+                                    color: rgb(variable.$accent_glow, 0.45);
+                                }
+                            }
+
+                            .form_input {
+                                padding: 15px 20px;
+                                border: solid 1px rgb(variable.$assect_color, 0.115);
+                                border-radius: 10px;
+                                outline: none;
+                                width: 100%;
+                                background-color: rgb(variable.$background_color, 0.195);
+                                position: relative;
+
+                                &.sub {
+                                    padding-left: 40px;
+                                }
+
+                                &.time {
+                                    padding: 12px 20px;
+                                    font-size: 0.9rem;
+                                }
+
+                                &::placeholder {
+                                    color: rgb(variable.$assect_color, 0.375);
+                                }
+
+                                &:focus {
+                                    border-color: #10b981;
+                                    box-shadow:
+                                        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                                    transform: translateY(-1px);
+                                }
+                            }
+                        }
+
+                        .text_aria {
+                            border: solid 1px rgb(variable.$assect_color, 0.115);
+                            border-radius: 10px;
+                            outline: none;
+                            resize: none;
+                            background-color: rgb(variable.$background_color, 0.195);
+                            padding: 15px 20px;
+                            width: 100%;
+
+                            &:focus {
+                                border-color: #10b981;
+                                box-shadow:
+                                    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                                    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                                transform: translateY(-1px);
+                            }
+                        }
+
+                        .fack_input {
+                            border: solid 1px rgb(variable.$assect_color, 0.115);
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 12px 20px;
+                            border-radius: 10px;
+                            background-color: rgb(variable.$background_color, 0.195);
+
+                            .choos_message {
+                                font-size: 0.9rem;
+                                font-family: variable.$font_family_normal;
+                                color: rgb(variable.$assect_color, 0.7);
+                            }
+
+                            .image_input {
+                                background-color: variable.$assect_color;
+                                color: variable.$primary_color;
+                                padding: 6px 12px;
+                                font-size: 0.7rem;
+                                font-family: variable.$font_family_normal;
+                                border-radius: 10px;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: rgb(variable.$accent_glow, 0.85);
+                                }
+                            }
+                        }
+
+                        .image_priview_layout {
+                            display: flex;
+                            flex-direction: row;
+                            margin-top: 10px;
+                            gap: 30px;
+
+                            .image_contener_main {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                aspect-ratio: 16/9;
+                                border: solid 1px rgb(variable.$assect_color, 0.115);
+                                width: 195px;
+                                border-radius: 10px;
+                                border-style: dashed;
+                                background-color: rgb(variable.$background_color, 0.195);
+                                margin-top: 10px;
+                                padding: 5px;
+                                position: relative;
+
+                                .icon {
+                                    position: absolute;
+                                    right: 5px;
+                                    top: 5px;
+                                    background-color: rgb(variable.$primary_color, 1);
+                                    color: variable.$error-red;
+                                    font-size: 1rem;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                }
+
+                                img {
+                                    width: 100%;
+                                    aspect-ratio: 16/9;
+                                    border-radius: 10px;
+                                    cursor: pointer;
+                                    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.104);
+                                }
+                            }
+
+                            .image_contener_other {
+                                display: flex;
+                                flex-direction: row;
+                                gap: 10px;
+                                border: solid 1px rgb(variable.$assect_color, 0.115);
+                                background-color: rgb(variable.$background_color, 0.295);
+                                border-radius: 10px;
+                                border-style: dashed;
+                                min-width: 810px;
+                                min-height: 110px;
+                                margin-top: 10px;
+                                padding: 5px 7px;
+
+                                .image_hodelr {
+                                    position: relative;
+
+                                    .icon {
+                                        position: absolute;
+                                        right: 5px;
+                                        top: 5px;
+                                        font-size: 0.9rem;
+                                        color: variable.$error-red;
+                                        background-color: rgb(variable.$primary_color, 0.5);
+                                        cursor: pointer;
+                                    }
+                                }
+
+                                img {
+                                    width: 190px;
+                                    aspect-ratio: 16/9;
+                                    border-radius: 10px;
+                                    cursor: pointer;
+                                    border: solid 1px rgb(variable.$accent_glow, 0.15);
+                                }
+                            }
+                        }
+                    }
+
+                    .input_btn_group {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: end;
+
+                        .btn_group {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 15px;
+
+                            .btn {
+                                border: solid 1px variable.$accent_glow;
+                                padding: 12px 20px;
+                                border-radius: 10px;
+                                background-color: variable.$accent_glow;
+                                color: variable.$primary_color;
+                                display: flex;
+                                flex-direction: row;
+                                gap: 7px;
+                                font-family: variable.$font_family_normal;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: rgb(variable.$accent_glow, 0.85);
+                                    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.049);
+                                }
+
+                                &.sub {
+                                    background-color: transparent;
+                                    color: variable.$accent_glow;
+
+                                    &:hover {
+                                        background-color: rgb(variable.$accent_glow, 0.15);
+                                        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.049);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .error {
+                        color: variable.$error-red;
+                        font-size: 0.75rem;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.4rem;
+
+                        svg {
+                            font-size: 0.85rem;
+                        }
+                    }
+                }
+            }
+
+            .service_right_card {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                width: 100%;
+
+                .right_content {
+                    height: auto;
+                    position: sticky;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    width: 100%;
+                    top: 30px;
+                    right: 0;
+                    border-radius: 20px;
+                    background-color: variable.$primary_color;
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.091);
+                    padding: 15px 20px;
+
+                    .complete_ratio_layout {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 7px;
+
+                        .sub_message {
+                            font-size: 0.7rem;
+                            font-family: variable.$font_family_normal;
+                        }
+
+                        .ratio_layout {
+                            display: grid;
+                            grid-template-columns: 1fr 20px;
+                            gap: 10px;
+                            align-items: center;
+                            border-bottom: solid 1px rgb(variable.$assect_color, 0.115);
+                            padding-bottom: 20px;
+                            border-style: dashed;
+                            border-left: none;
+                            border-right: none;
+                            border-top: none;
+
+                            span {
+                                font-size: 0.75rem;
+                            }
+
+                            .progres_bar {
+                                width: 100%;
+                                height: 10px;
+                                border: solid 1px rgb(variable.$assect_color, 0.115);
+                                border-radius: 5px;
+
+                                .bar {
+                                    background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+                                    border-radius: 5px;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                    .required_layout {
+                        display: flex;
+                        flex-direction: column;
+                        border: none;
+                        gap: 10px;
+
+                        span {
+                            font-size: 0.95rem;
+                            font-weight: 500;
+                            font-family: variable.$font_family_normal;
+                        }
+
+                        .required {
+                            list-style: none;
+                            border: none;
+
+                            li {
+                                padding: 7px 5px;
+
+                                .mg {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    gap: 10px;
+                                    font-size: 0.9rem;
+                                    font-family: variable.$font_family_normal;
+                                    color: rgb(variable.$assect_color, 0.475);
+                                    font-weight: 500;
+                                    cursor: pointer;
+                                    transition: all 1s;
+
+                                    &:hover {
+                                        padding-left: 7px;
+                                    }
+
+                                    &.active {
+                                        color: #10b981;
+                                    }
+
+                                    .icon {
+                                        font-size: 0.8rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

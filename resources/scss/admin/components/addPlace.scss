@@ -1,0 +1,655 @@
+@use "../layout/variable";
+
+.page_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 100vh;
+
+    .page_content_layout {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        .page_hedder {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 25px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+            width: 100%;
+            height: 80px;
+            border-bottom: 1px solid #f1f5f9;
+
+            .hedd {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                h1 {
+                    font-size: 1.7rem;
+                    font-weight: 700;
+                    font-family: variable.$font_family_normal;
+                    text-transform: uppercase;
+                    letter-spacing: 0.002px;
+                }
+
+                .other_navigation {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    font-size: 0.9rem;
+                    gap: 2px;
+
+                    .link {
+                        text-decoration: none;
+                        color: blue;
+                    }
+
+                    .icon {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+
+            .button_group {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+
+                .btn {
+                    border: solid 1px rgb(variable.$assect_color, 0.99);
+                    padding: 10px 20px;
+                    border-radius: 15px;
+                    background-color: variable.$assect_color;
+                    color: variable.$primary_color;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    transform: all 3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    text-decoration: none;
+                    font-size: 0.8rem;
+
+                    .icon {
+                        margin: 0;
+                        padding: 0;
+                        font-size: 0.7rem;
+                    }
+
+                    &:hover {
+                        background-color: rgb(variable.$assect_color, 0.89);
+                        transform: scale(0.95);
+                    }
+                }
+            }
+        }
+
+        .page_main_conetent_layout {
+            display: flex;
+            margin: 0 auto;
+            max-width: 1440px;
+            width: 100%;
+            height: 100%;
+            padding: 0px 25px;
+
+            .page_main_content {
+                display: grid;
+                grid-template-columns: 1fr 250px;
+                gap: 30px;
+                width: 100%;
+
+                .back_apire {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 35px;
+                    width: 100%;
+                    padding: 30px 30px;
+                    padding-bottom: 50px;
+                    border-radius: 20px;
+                    background-color: variable.$primary_color;
+                    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.091);
+
+                    &.sub {
+                        padding: 25px 20px;
+                    }
+                }
+
+                .form_content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    margin-bottom: 20px;
+
+                    .form_content_hedder {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        border-bottom: solid 1px rgb(variable.$secondary_color, 0.099);
+                        padding-bottom: 10px;
+
+                        h1 {
+                            font-size: variable.$base_section_hedder;
+                            display: flex;
+                            font-weight: 500;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 10px;
+
+                            .icon {
+                                color: variable.$secondary_color;
+                            }
+                        }
+                    }
+
+                    .holder {
+                        width: 100%;
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 24px;
+                        padding: 20px;
+                    }
+                }
+
+                .input_gorup_layout {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 35px;
+                }
+
+                .input_row_group {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 30px;
+                }
+
+                .text_box {
+                    width: 100%;
+                    resize: none;
+                    border: solid 1px rgb(variable.$assect_color, 0.089);
+                    border-radius: 10px;
+                    padding: 10px 15px;
+                    outline: none;
+
+                    &:focus {
+                        border-color: #10b981;
+                        box-shadow:
+                            0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                            0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                        transform: translateY(-1px);
+                    }
+                }
+
+                .lb {
+                    font-size: 1rem;
+                    font-family: variable.$font_family_normal;
+                    color: variable.$assect_color_light;
+                    font-weight: 400;
+
+                    sup {
+                        color: variable.$danger_color;
+                    }
+
+                    .sub_span {
+                        font-size: 0.9rem;
+                        color: variable.$assect_color_lighter;
+                    }
+                }
+
+                .count {
+                    position: absolute;
+                    right: 8px;
+                    bottom: 6px;
+                    font-size: 0.7rem;
+                    color: #9ca3af;
+                    padding: 2px 6px;
+                    font-weight: 700;
+                    pointer-events: none;
+                    background: rgba(255, 255, 255, 0.8);
+                    border-radius: 4px;
+                    transition: all 0.2s ease;
+
+                    &.warning {
+                        color: #f59e0b;
+                    }
+
+                    &.error {
+                        color: #ef4444;
+                        animation: shake 0.2s ease-in-out;
+                    }
+                }
+
+                .input_gorup {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .input_box {
+                        display: flex;
+                        position: relative;
+
+                        .form_input {
+                            background-color: rgb(variable.$background_color, 0.18);
+                            border: solid 1px rgb(variable.$assect_color, 0.079);
+                            padding: 15px 20px;
+                            padding-left: 37px;
+                            width: 100%;
+                            border-radius: 10px;
+                            outline: none;
+                            font-size: 0.9rem;
+
+                            &:focus {
+                                border-color: #10b981;
+                                box-shadow:
+                                    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                                    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                                transform: translateY(-1px);
+                            }
+
+                            &::placeholder {
+                                color: #94a3b8;
+                            }
+
+                            &.drop {
+                                cursor: pointer;
+                                padding-left: 10px;
+                                padding-right: 20px;
+                            }
+
+                            &.normal {
+                                padding-left: 15px;
+                            }
+
+                            &.normals {
+                                padding: 12px 15px;
+                            }
+
+                            &.error {
+                                border-color: #ef4444;
+                            }
+                        }
+
+                        .icon {
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            align-items: center;
+                            padding: 14px 7px;
+                            color: #6366f1;
+                        }
+
+                        .seleter {
+                            right: 0;
+                            bottom: 0;
+                            position: absolute;
+                            align-items: center;
+                            padding: 14px 7px;
+                            color: rgb(variable.$assect_color, 0.85);
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .save_data {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: end;
+                    padding: 0px 10px;
+
+                    .button_group {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 10px;
+                        padding: 0;
+
+                        .btn {
+                            padding: 12px 20px;
+                            border: solid 1px rgb(variable.$assect_color, 0.189);
+                            border-radius: 10px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 10px;
+                            background-color: variable.$accent_glow;
+                            color: variable.$primary_color;
+                            font-weight: 600;
+                            transform: all 3s;
+                            cursor: pointer;
+
+                            &:hover {
+                                transform: scale(0.95);
+                                background-color: rgb(variable.$accent_glow, 0.85);
+                            }
+
+                            &.deactive {
+                                background-color: rgb(variable.$accent_glow, 0.85);
+                                transform: none;
+                            }
+
+                            &.sub {
+                                border: solid 1px variable.$accent_glow;
+                                background-color: transparent;
+                                color: variable.$accent_glow;
+
+                                &:hover {
+                                    background-color: rgb(variable.$assect_color, 0.089);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .fack_input_box {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    border: solid 1px rgb(variable.$assect_color, 0.189);
+                    min-width: 100%;
+                    font-size: 0.9rem;
+                    padding: 9px 10px;
+                    border-radius: 10px;
+                    justify-content: space-between;
+                    margin-top: 5px;
+                    align-items: center;
+
+                    .choose_message {
+                        min-width: 100px;
+                        display: flex;
+                        color: variable.$assect_color_lighter;
+                    }
+
+                    .input_image {
+                        padding: 6px 15px;
+                        background-color: variable.$accent_glow;
+                        color: variable.$primary_color;
+                        font-size: 0.7rem;
+                        border-radius: 10px;
+                        cursor: pointer;
+                    }
+                }
+
+                .place_image_privew_layout {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(1, 1fr);
+                    gap: 40px;
+
+                    .main {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 30px;
+
+                        .main_image {
+                            aspect-ratio: 16/9;
+                            display: flex;
+                            width: 100%;
+                            border: solid 1px rgb(variable.$assect_color, 0.189);
+                            border-radius: 10px;
+                            padding: 10px;
+                            position: relative;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                aspect-ratio: 16/9;
+                                border-radius: 5px;
+                                position: relative;
+                                object-fit: cover;
+                                cursor: pointer;
+                                transition: all 1s;
+
+                                &:hover {
+                                    transform: scale(1.05);
+                                }
+                            }
+
+                            video {
+                                width: 100%;
+                                height: auto;
+                                aspect-ratio: 16/9;
+                                position: relative;
+                                object-fit: cover;
+                            }
+
+                            .icon {
+                                position: absolute;
+                                z-index: 100;
+                                background-color: variable.$primary_color;
+                                padding: 5px;
+                                aspect-ratio: 1/1;
+                                color: variable.$danger_color;
+                                border-radius: 50%;
+                                font-size: 1rem;
+                                right: 0;
+                                cursor: pointer;
+                                top: 5px;
+
+                                &:hover {
+                                    background: red;
+                                    transform: scale(1.1);
+                                    color: variable.$primary_color;
+                                }
+                            }
+                        }
+                    }
+
+                    .other {
+                        display: flex;
+                        width: 475px;
+                        height: 135px;
+                        border-radius: 10px;
+                        border: solid 1px rgb(variable.$assect_color, 0.189);
+                        padding: 10px;
+                        padding-bottom: 2px;
+
+                        .other_image_box {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            gap: 10px;
+                            overflow-x: auto;
+                            width: 100%;
+                            height: 100%;
+                            vertical-align: top;
+
+                            .holder_image {
+                                height: 100px;
+                                position: relative;
+                                aspect-ratio: 16/9;
+                            }
+
+                            .icon {
+                                position: absolute;
+                                z-index: 100;
+                                background-color: variable.$primary_color;
+                                padding: 5px;
+                                aspect-ratio: 1/1;
+                                color: variable.$danger_color;
+                                border-radius: 50%;
+                                font-size: 0.95rem;
+                                right: 1px;
+                                cursor: pointer;
+                                top: 1px;
+
+                                &:hover {
+                                    background: red;
+                                    transform: scale(1.1);
+                                    color: variable.$primary_color;
+                                }
+                            }
+
+                            img {
+                                height: 100px;
+                                aspect-ratio: 16/9;
+                                border-radius: 5px;
+                                border: solid 1px rgb(variable.$accent_glow, 0.35);
+                                padding: 2px;
+                                position: relative;
+                                object-fit: cover;
+
+                                cursor: pointer;
+                                transition: all 1s;
+
+                                &:hover {
+                                    transform: scale(1.05);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .right_content {
+        height: auto;
+        position: sticky;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        top: 30px;
+        right: 0;
+        border-radius: 20px;
+        background-color: variable.$primary_color;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.091);
+
+        padding: 10px 20px;
+        //min-height: 750px;
+
+        .complte_ratio {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            span {
+                font-size: 0.7rem;
+            }
+
+            .ratio_content_holder {
+                display: grid;
+                grid-template-columns: 85% 10%;
+                gap: 10px;
+                align-items: center;
+
+                .ratio_holder {
+                    width: 100%;
+                    display: flex;
+                    border: solid 1px rgb(variable.$assect_color, 0.079);
+                    height: 10px;
+                    border-radius: 5px;
+
+                    .ratio {
+                        background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+                        border-radius: 5px;
+                    }
+                }
+
+                .presentage {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        .required_main {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-top: solid 1px rgb(variable.$assect_color, 0.089);
+            border-style: dashed;
+            margin-top: 1rem;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+
+            .main_text {
+                font-size: 1rem;
+                font-family: variable.$font_family_normal;
+                font-weight: 600;
+                font-size: 0.9rem;
+                margin-top: 16px;
+            }
+
+            .request_list {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+
+                li {
+                    padding: 6px 5px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 7px;
+                    cursor: pointer;
+                    transition: all 1s;
+
+                    &:hover {
+                        transform: translateX(2px);
+                    }
+
+                    .icons {
+                        font-style: 0.7rem;
+                        color: #94a3b8;
+                        margin-right: 10px;
+
+                        &.complet {
+                            color: #22c55e;
+                        }
+
+                        &.inComplete {
+                            color: #ef4444;
+                        }
+                    }
+
+                    .icon {
+                        font-size: 0.8rem;
+                        color: rgb(variable.$assect_color, 0.38);
+                    }
+
+                    span {
+                        font-size: 0.9rem;
+                        font-family: variable.$font_family_normal;
+                        color: #94a3b8;
+
+                        &.complet {
+                            color: #22c55e;
+                        }
+
+                        &.inComplete {
+                            color: #ef4444;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.error {
+    color: variable.$error-red;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    svg {
+        font-size: 0.85rem;
+    }
+}

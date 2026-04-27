@@ -1,0 +1,294 @@
+@use "../../layout/variable";
+
+.popular_places_section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-top: 30px;
+    font-family: 'Inter', sans-serif;
+
+    .section_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 20px;
+
+        .main_title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .sub_title {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .view_all_link {
+            color: #27ae60;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: translateX(5px);
+            }
+        }
+    }
+
+    .scroll_container {
+        overflow-x: auto;
+        scrollbar-width: none;
+        background-color: transparent;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        scroll-behavior: smooth;
+        padding-bottom: 20px;
+    }
+
+    .cards_wrapper {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-start;
+        padding-top: 10px;
+        background-color: transparent;
+    }
+
+    .place_card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid #f0f0f0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+
+        flex: 0 0 100%;
+
+        @include variable.sm {
+            flex: 0 0 calc(50% - 10px);
+        }
+
+
+        @include variable.lg {
+            flex: 0 0 calc(33.33% - 14px);
+        }
+
+
+        @include variable.xl {
+            flex: 0 0 calc(25% - 15px);
+        }
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .image_wrapper {
+            position: relative;
+            height: 220px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .badge_container {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+
+                .crowd_badge {
+                    padding: 6px 12px;
+                    border-radius: 50px;
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    backdrop-filter: blur(8px);
+                    color: white;
+
+                    &.low {
+                        background: rgba(39, 174, 96, 0.9);
+                    }
+
+                    &.medium {
+                        background: rgba(243, 156, 18, 0.9);
+                    }
+
+                    &.high {
+                        background: rgba(231, 76, 60, 0.9);
+                    }
+                }
+            }
+        }
+
+        .card_body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .rating_row {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.7rem;
+                color: #636e72;
+
+                .star_active {
+                    color: #f1c40f;
+                    font-size: 0.75rem;
+                }
+
+                .star_inactive {
+                    color: #e0e0e0;
+                    font-size: 0.75rem;
+                }
+
+                .review_count {
+                    font-size: 0.8rem;
+                    color: #999;
+                }
+            }
+
+            .place_name {
+                font-size: 1.15rem;
+                font-weight: 700;
+                color: #2d3436;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .info_item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.85rem;
+                color: #636e72;
+
+                .icon {
+                    color: #27ae60;
+                    width: 14px;
+                }
+
+                .text {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+
+            .description {
+                font-size: 0.85rem;
+                color: #7f8c8d;
+                line-height: 1.5;
+                height: 40px;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .price_grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background: #f8f9fa;
+                border-radius: 12px;
+                padding: 10px;
+                margin-top: 5px;
+
+                .price_item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    &:first-child {
+                        border-right: 1px solid #e0e0e0;
+                    }
+
+                    .label {
+                        font-size: 0.65rem;
+                        text-transform: uppercase;
+                        color: #95a5a6;
+                        font-weight: 600;
+                    }
+
+                    .value {
+                        font-size: 0.85rem;
+                        font-weight: 700;
+                        color: #2c3e50;
+                    }
+                }
+            }
+
+            .button_group {
+                display: grid;
+                grid-template-columns: 1fr 1.5fr;
+                gap: 10px;
+                margin-top: 10px;
+
+                .btn_primary,
+                .btn_secondary {
+                    padding: 12px;
+                    border-radius: 10px;
+                    text-align: center;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: all 0.2s;
+                }
+
+                .btn_primary {
+                    background: #27ae60;
+                    color: #fff;
+
+                    &:hover {
+                        background: #219150;
+                    }
+                }
+
+                .btn_secondary {
+                    background: #fff;
+                    color: #27ae60;
+                    border: 1.5px solid #27ae60;
+
+                    &:hover {
+                        background: #f0fff4;
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination_dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 30px;
+
+        .dot_btn {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #dcdde1;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &.active {
+                width: 30px;
+                border-radius: 10px;
+                background: #27ae60;
+            }
+        }
+    }
+}

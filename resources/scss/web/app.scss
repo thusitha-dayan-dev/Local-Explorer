@@ -1,0 +1,47 @@
+@use 'layout/variable';
+@use 'layout/reset';
+@use 'layout/default';
+
+@use 'components/web';
+@use 'components/customDropDown';
+
+@use 'components/welcome/about';
+@use 'components/welcome/mostPopular';
+@use 'components/welcome/allPlace';
+@use 'components/welcome/hero';
+@use 'components/welcome/navigation';
+@use 'components/welcome/footer';
+@use 'components/welcome/watchGuide';
+@use 'components/welcome/review';
+@use 'components/welcome/tripPlanCard';
+@use 'components/welcome/myPlan';
+
+@use 'components/auth/login';
+@use 'components/auth/updatePassword';
+@use 'components/auth/signup';
+@use 'components/auth/resetPassword';
+@use 'components/auth/sending';
+
+@use 'components/tripPlan/planner';
+@use 'components/tripPlan/basicInforeForm';
+@use 'components/tripPlan/map';
+@use 'components/tripPlan/planForm';
+@use 'components/tripPlan/tripPlanView';
+@use 'components/tripPlan/mainForm';
+
+@use 'model/placeDetailsModel';
+@use 'model/delateModel';
+@use 'model/reviewModel';
+@use 'model/addTripModel';
+@use 'model/userSetting';
+
+@use 'notification/successTocast';
+@use 'notification/errorTocast';
+@use 'notification/WelcomeSuccessToast';
+
+@use 'loding/PlaceSkeleton';
+@use 'loding/NoResultsFound';
+@use 'loding/noReviews';
+@use 'loding/NoTripPlans';
+@use 'loding/TripSearchNoResults';
+@use 'loding/TripPlanSkeleton';

@@ -1,0 +1,25 @@
+@use "variable";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: variable.$bg_main;
+    color: variable.$txt_main;
+    font-family: variable.$font_body;
+    font-weight: variable.$fw_regular;
+    line-height: variable.$lh_body;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#all-places-section {
+    scroll-margin-top: 50px;
+}

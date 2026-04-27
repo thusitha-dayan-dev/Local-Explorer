@@ -1,0 +1,106 @@
+@use "../layout/variable";
+
+.admin_dashboard_main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    gap: 0;
+    height: 100vh;
+    overflow: hidden;
+
+    .dashboard_content {
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+
+        .content_layout {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            max-width: 1440px;
+            width: 100%;
+            height: 100%;
+            padding: 0px 25px;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            .card_layout {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+                padding: 10px 0;
+                margin-top: 10px;
+
+                .card {
+                    padding: 25px 15px;
+                    width: 100%;
+                    background-color: variable.$primary_color;
+                    border: solid 1px variable.$boder_color;
+                    box-shadow: variable.$box_shadow_liter;
+                    border-radius: 20px;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 30px;
+                    align-items: center;
+                    cursor: pointer;
+                    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.059);
+
+                    &:hover {
+                        box-shadow: variable.$box_shadow_soft;
+                        transform: translateY(-5px);
+                    }
+
+                    .card_content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .card_hedder {
+                            font-size: 1rem;
+                            font-family: variable.$font_family_normal;
+                            font-weight: 500;
+                            color: rgb(variable.$accent_glow, 0.5);
+                        }
+
+                        .title {
+                            color: variable.$assect_color;
+                            font-weight: 700;
+                            font-size: 2rem;
+                        }
+
+                        .sub_title {
+                            color: variable.$assect_color_lighter;
+                            margin-left: 10px;
+                            font-size: 0.9rem;
+                        }
+                    }
+
+                    .card_icon {
+                        display: flex;
+                        flex-direction: row;
+                        background: linear-gradient(145deg, #dfe4e5, #ffffff);
+                        border-radius: 10px;
+                        padding: 5px;
+                        aspect-ratio: 1;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow:
+                            8px 8px 16px #0000000d,
+                            -8px -8px 16px #0000000d;
+
+                        .icon {
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

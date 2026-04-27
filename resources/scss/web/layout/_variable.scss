@@ -1,0 +1,100 @@
+/* --- 1. COLORS --- */
+$bg_main: #f1f5f9;
+$bg_section: #ffffff;
+$bg_footer: #002d01;
+$clr_black: #000000;
+$clr_deep_green: #003d01;
+$clr_primary: #005f02;
+$clr_primary_light: #48a111;
+$clr_primary_lighter: #b6f500;
+$grad_primary: linear-gradient(135deg, $clr_primary 0%, $clr_primary_light 100%);
+$grad_btn: linear-gradient(to right, $clr_primary_light, $clr_primary_lighter);
+$grad_mesh: radial-gradient(at 0% 0%, $clr_primary 0%, transparent 50%),
+    radial-gradient(at 100% 0%, $clr_primary_light 0%, transparent 50%),
+    radial-gradient(at 50% 100%, $clr_primary_lighter 0%, transparent 50%);
+$grad_white_soft: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+$grad_white_nature: linear-gradient(135deg, #FFFFFF 0%, rgba($clr_primary_lighter, 0.1) 100%);
+$grad_glass_white: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.4) 100%);
+$clr_secondary: #ffc107;
+$clr_secondary_light: #ffca2c;
+$txt_main: #1b4332;
+$txt_muted: #5a7d6c;
+$txt_white: #ffffff;
+$clr_success: #28a745;
+$clr_main: #059669;
+$bg_success_light: #e9f7ef;
+$clr_error: #dc3545;
+$bg_error_light: #fdeded;
+$clr_warning: #ffc107;
+$bg_warning_light: #fff9e6;
+$clr_info: #17a2b8;
+$bg_info_light: #e7f6f8;
+$clr_light: #686868;
+$space_xs: 0.5rem; // 8px
+$space_sm: 1rem; // 16px
+$space_md: 1.5rem; // 24px
+$space_lg: 3rem; // 48px
+$space_xl: 5rem; // 80px
+$container_xl: 1140px;
+$btn_pad_mob: 12px 20px;
+$btn_pad_desk: 10px 24px;
+$btn_font_mob: 16px;
+$btn_font_desk: 15px;
+$fs_h1: clamp(2rem, 5vw, 3rem);
+$fs_h2: clamp(1.5rem, 4vw, 2.25rem);
+$fs_h3: clamp(1.25rem, 3vw, 1.75rem);
+$fs_body: 1rem;
+$fs_small: 0.875rem;
+$fs_btn: 1rem;
+$fw_bold: 700;
+$fw_semibold: 600;
+$fw_medium: 500;
+$fw_regular: 400;
+$lh_heading: 1.2;
+$lh_body: 1.6;
+$z_nav: 1000;
+$shadow_soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+$border_light: rgba(0, 95, 2, 0.1);
+$transition: 0.3s ease-in-out;
+$font_heading: 'Plus Jakarta Sans', sans-serif;
+$font_main_heading: 'Playfair Display', serif;
+$font_body: 'Inter', sans-serif;
+$font :'Inter',
+sans-serif;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+@mixin sm {
+    @media (min-width: #{$sm}) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: #{$md}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: #{$lg}) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: #{$xl}) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media (min-width: #{$xxl}) {
+        @content;
+    }
+}

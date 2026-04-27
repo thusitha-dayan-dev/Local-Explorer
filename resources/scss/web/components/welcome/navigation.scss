@@ -1,0 +1,421 @@
+@use "../../layout/variable";
+
+// --- Extra Nav Variables ---
+$nav_height_mob: 70px;
+$nav_height_desk: 85px;
+$glass_bg: rgba(255, 255, 255, 0.95);
+$glass_border: rgba(0, 95, 2, 0.08);
+
+.main_navigation {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: $nav_height_mob;
+    background: variable.$bg_section;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid $glass_border;
+
+    &.scrolled {
+        height: 65px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 10px 30px rgba(0, 61, 1, 0.05);
+    }
+
+    @include variable.lg {
+        height: $nav_height_desk;
+
+        &.scrolled {
+            height: 75px;
+        }
+    }
+
+    .nav_container {
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+
+        .logo_icon {
+            width: 38px;
+            height: 38px;
+            background: variable.$grad_primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 95, 2, 0.2);
+        }
+
+        .logo_text {
+            font-family: variable.$font_heading;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: variable.$clr_deep_green;
+            letter-spacing: -0.5px;
+
+            .sub {
+                color: variable.$clr_primary_light;
+            }
+        }
+    }
+
+    .nav_link_group {
+
+        @media (max-width: #{variable.$lg - 1px}) {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 25px;
+            box-shadow: 20px 0 50px rgba(0, 0, 0, 0.1);
+
+            &.open {
+                left: 0;
+            }
+        }
+
+        @include variable.lg {
+            display: flex;
+            align-items: center;
+        }
+
+        .link_list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            @include variable.lg {
+                flex-direction: row;
+                gap: 5px;
+            }
+
+            li .nav_item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 18px;
+                border-radius: 12px;
+                color: variable.$txt_main;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: 0.3s;
+                text-decoration: none;
+
+                @media (min-width: #{variable.$lg}) and (max-width: 1100px) {
+                    font-size: .85rem;
+                    padding: 10px 12px;
+                }
+
+                .m_icon {
+                    font-size: 1.1rem;
+                    opacity: 0.7;
+
+                    @include variable.lg {
+                        display: none;
+                    }
+                }
+
+                &:hover,
+                &.active {
+                    background: rgba(0, 95, 2, 0.05);
+                    color: variable.$clr_primary;
+
+                    .m_icon {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .mobile_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+
+        @include variable.lg {
+            display: none;
+        }
+
+        .user_profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .avatar_circle {
+                width: 45px;
+                height: 45px;
+                background: #f0fdf4;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: variable.$clr_primary;
+                border: 1px solid $glass_border;
+            }
+
+            .user_name {
+                font-weight: 700;
+                font-size: 1rem;
+                color: variable.$clr_deep_green;
+            }
+        }
+
+        .close_btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #666;
+            cursor: pointer;
+        }
+    }
+
+    .mobile_footer {
+        margin-top: auto;
+
+        @include variable.lg {
+            display: none;
+        }
+
+        .auth_buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+
+            .btn_login {
+                padding: 12px;
+                text-align: center;
+                border-radius: 10px;
+                border: 1px solid variable.$clr_primary;
+                color: variable.$clr_primary;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            .btn_signup {
+                padding: 12px;
+                text-align: center;
+                border-radius: 10px;
+                background: variable.$grad_primary;
+                color: white;
+                font-weight: 600;
+                text-decoration: none;
+            }
+        }
+
+        .copy {
+            font-size: 0.7rem;
+            color: #bbb;
+            text-align: center;
+        }
+    }
+
+    .nav_actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .user_profile_dropdown {
+            position: relative;
+            cursor: pointer;
+
+            .profile_trigger {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 5px 12px;
+                background: rgba(variable.$clr_primary, 0.05);
+                border-radius: 50px;
+                transition: 0.3s;
+
+                &:hover {
+                    background: rgba(variable.$clr_primary, 0.1);
+                }
+
+                .nav_avatar,
+                .nav_temp_avatar {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 2px solid white;
+                }
+
+                .nav_temp_avatar {
+                    background: variable.$grad_primary;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                }
+
+                .nav_user_name {
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: #333;
+
+                    @media (max-width: 1024px) {
+                        display: none;
+                    }
+                }
+            }
+
+            .dropdown_content {
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                background: white;
+                min-width: 160px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                padding: 8px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: 0.3s;
+                z-index: 1000;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -5px;
+                    right: 15px;
+                    width: 10px;
+                    height: 10px;
+                    background: white;
+                    transform: rotate(45deg);
+                }
+
+                .dropdown_item {
+                    display: block;
+                    padding: 10px 15px;
+                    color: #444;
+                    text-decoration: none;
+                    font-size: 0.85rem;
+                    border-radius: 8px;
+                    transition: 0.2s;
+
+                    &:hover {
+                        background: #f8fafc;
+                        color: variable.$clr_primary;
+                    }
+
+                    &.logout_txt {
+                        color: #ef4444;
+                        width: 100%;
+                        text-align: left;
+                        border: none;
+                        background: none;
+                        cursor: pointer;
+                        font-family: inherit;
+
+                        &:hover {
+                            background: #fef2f2;
+                        }
+                    }
+                }
+
+                hr {
+                    border: 0;
+                    border-top: 1px solid #f1f5f9;
+                    margin: 5px 0;
+                }
+
+                &.open {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+            }
+
+            &:hover .dropdown_content {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+
+
+        }
+
+        .desktop_signin_btn {
+            display: none;
+
+            @include variable.lg {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 22px;
+                background: variable.$clr_deep_green;
+                color: white;
+                border-radius: 12px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: 0.3s;
+
+                &:hover {
+                    background: variable.$clr_primary;
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(0, 95, 2, 0.15);
+                }
+            }
+        }
+
+        .menu_toggle {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: variable.$clr_deep_green;
+            background: #f0fdf4;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+
+            @include variable.lg {
+                display: none;
+            }
+        }
+    }
+
+    .nav_overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+    }
+}

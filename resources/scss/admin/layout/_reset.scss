@@ -1,0 +1,19 @@
+@use 'variable';
+
+*,
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: variable.$background_color;
+    box-sizing: border-box;
+    color: variable.$assect_color;
+    font-family: variable.$font_family_base;
+    overflow-y: hidden;
+}

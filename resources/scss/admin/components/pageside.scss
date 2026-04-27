@@ -1,0 +1,114 @@
+@use "../layout/variable";
+
+.page_sider {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 50px 180px 20px 50px;
+    background:
+        radial-gradient(at 0% 0%, variable.$soft_teal 0%, transparent 50%), radial-gradient(at 100% 0%, rgba(variable.$secondary_light, 0.5) 0%, transparent 50%),
+        linear-gradient(135deg, variable.$secondary_color 0%, variable.$accent_glow 100%);
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
+    color: variable.$primary_color;
+    overflow: hidden;
+
+    .page_logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .icon {
+            width: 25px;
+            height: 25px;
+            background-color: variable.$info-color;
+            padding: 10px;
+            border-radius: 17%;
+        }
+
+        .logo {
+            font-size: variable.$font_size_lg;
+            font-weight: 600;
+            font-family: variable.$font_family_normal;
+
+            .other {
+                color: rgb(0, 255, 247);
+            }
+        }
+    }
+
+    .page_main_hedder {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .main_hedder {
+            color: variable.$primary_color;
+            font-size: 2.6rem;
+            display: flex;
+            flex-direction: column;
+
+            .blue {
+                color: rgb(0, 255, 247);
+            }
+        }
+
+        .discription_massage {
+            font-size: 1.3rem;
+            font-family: variable.$font_family_normal;
+            line-height: 1.6;
+            color: rgba(variable.$primary_color, 0.8);
+        }
+    }
+
+    .fetches_list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        li {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+
+            .icon {
+                display: flex;
+                width: 45px;
+                height: 45px;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                background-color: rgba(variable.$primary_color, 0.15);
+                backdrop-filter: blur(20px);
+                aspect-ratio: 1;
+                border-radius: 50%;
+                font-size: 1.2rem;
+            }
+
+            .other_details {
+                display: flex;
+                flex-direction: column;
+
+                .heder_massage {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    font-family: variable.$font_family_normal;
+                }
+
+                .title_massage {
+                    color: rgba(variable.$primary_color, 0.8);
+                }
+            }
+        }
+    }
+
+    .footer_massage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: auto;
+        padding-bottom: 20px;
+        color: rgba(variable.$primary_color, 0.5);
+    }
+}

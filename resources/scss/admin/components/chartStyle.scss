@@ -1,0 +1,228 @@
+@use "../layout/variable";
+
+.chart_layout_main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 30px;
+    gap: 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+
+    .chart {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background-color: variable.$primary_color;
+        padding: 20px;
+        border-radius: 25px;
+        box-shadow: variable.$box_shadow_liter;
+
+        .chart_hedder {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                font-size: variable.$base_section_hedder;
+                font-weight: 600;
+                color: variable.$assect_color;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+                text-transform: uppercase;
+
+                .icon {
+                    color: rgb(variable.$secondary_color, 0.75);
+                }
+            }
+
+            .title {
+                font-size: 0.9rem;
+                text-align: center;
+                color: variable.$assect_color_light;
+                font-style: italic;
+                background-color: rgb(variable.$assect_color, 0.065);
+                padding: 3px 10px;
+                border-radius: 10px;
+            }
+        }
+
+        .chart_footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+
+            .message {
+                display: flex;
+                align-items: center;
+                font-size: 0.9rem;
+                color: variable.$assect_color_light;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                align-items: center;
+
+                .icon {
+                    display: flex;
+                    color: variable.$assect_color_lighter;
+                }
+            }
+
+            .button_group {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                button {
+                    padding: 8px 15px;
+                    border: 1px solid variable.$assect_color;
+                    border-radius: 10px;
+                    background-color: variable.$assect_color;
+                    color: variable.$primary_color;
+                    display: flex;
+                    font-size: 0.8rem;
+                    align-items: center;
+                    gap: 10px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(variable.$assect_color, 0.775);
+                        border-color: rgb(variable.$assect_color, 0.775);
+                    }
+                }
+
+                .btn {
+                    text-decoration: none;
+                    padding: 7px 15px;
+                    border: 1px solid variable.$assect_color;
+                    font-size: 0.8rem;
+                    color: variable.$assect_color;
+                    border-radius: 10px;
+
+                    &:hover {
+                        background-color: rgb(variable.$assect_color, 0.075);
+                    }
+                }
+            }
+        }
+    }
+
+    .apexcharts-legend {
+        padding: 10px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .not_found {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 20px;
+
+        h1 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: variable.$danger_color;
+            margin-bottom: 10px;
+            font-family: variable.$font_family_normal;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .icon {
+            font-size: 10rem;
+            color: rgb(variable.$assect_color, 0.195);
+        }
+
+        img {
+            width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    }
+
+    .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 20px;
+        text-align: center;
+        width: 100%;
+        min-height: 400px;
+
+        img {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #64748b;
+            max-width: 380px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .add-btn-primary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #4f46e5;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+
+            &:hover {
+                background-color: #4338ca;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+}

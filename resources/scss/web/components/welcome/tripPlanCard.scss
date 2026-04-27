@@ -1,0 +1,124 @@
+@use "../../layout/variable";
+
+.stats_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: variable.$space_sm;
+    margin-bottom: variable.$space_md;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    @include variable.md {
+        grid-template-columns: repeat(2, 1fr);
+        gap: variable.$space_md;
+    }
+
+    @include variable.lg {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stat_card_new {
+    background: variable.$bg_section;
+    padding: 40px variable.$space_md;
+    border-radius: 20px;
+    border: 1px solid variable.$border_light;
+    box-shadow: variable.$shadow_soft;
+    display: flex;
+    align-items: center;
+    gap: variable.$space_sm;
+    transition: variable.$transition;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: rgba(variable.$clr_primary, 0.3);
+    }
+
+    .icon_box {
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: variable.$bg_main;
+    }
+
+    .info_box {
+        .label {
+            font-family: variable.$font_body;
+            font-size: 12px;
+            font-weight: variable.$fw_semibold;
+            color: variable.$txt_muted;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .value {
+            font-family: variable.$font_heading;
+            font-size: 24px;
+            font-weight: variable.$fw_bold;
+            color: variable.$txt_main;
+            margin: 0;
+        }
+    }
+
+    &.primary {
+        .icon_box {
+            color: variable.$clr_primary;
+            background: rgba(variable.$clr_primary, 0.1);
+        }
+    }
+
+    &.success {
+        .icon_box {
+            color: variable.$clr_success;
+            background: rgba(variable.$clr_success, 0.1);
+        }
+    }
+
+    &.info {
+        .icon_box {
+            color: variable.$clr_info;
+            background: rgba(variable.$clr_info, 0.1);
+        }
+    }
+
+    &.weather_card_premium {
+        justify-content: space-between;
+        background: variable.$grad_white_nature;
+
+        .desc {
+            font-size: 12px;
+            color: variable.$clr_primary_light;
+            text-transform: capitalize;
+            margin: 0;
+        }
+
+        .weather_visual {
+            font-size: 28px;
+        }
+    }
+}
+
+.shimmer_icon {
+    color: variable.$txt_muted;
+    opacity: 0.5;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}

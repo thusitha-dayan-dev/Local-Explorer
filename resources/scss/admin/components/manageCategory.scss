@@ -1,0 +1,379 @@
+@use "../layout/variable";
+
+.page_main_content_layout {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .page_content_layout {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        padding: 0px 25px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        .page_hedder {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+
+            .page_nav {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+
+                h1 {
+                    font-family: variable.$font_family_normal;
+                    font-size: 1.7rem;
+                    text-transform: uppercase;
+                }
+
+                .nav {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 3px;
+
+                    .link {
+                        font-size: 0.9rem;
+                        color: blue;
+                        text-decoration: none;
+                        font-weight: 500;
+                    }
+
+                    .icon {
+                        font-size: 0.8rem;
+                    }
+
+                    .name {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+
+            .grop_button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+
+                .btn {
+                    background-color: variable.$accent_glow;
+                    font-size: 0.8rem;
+                    color: variable.$primary_color;
+                    padding: 12px 20px;
+                    border-radius: 10px;
+                    border: solid 1px variable.$accent_glow;
+                    transform: all 1s;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(variable.$assect_color, 0.9);
+                        transform: scale(0.97);
+                    }
+                }
+            }
+        }
+
+        .page_content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px;
+
+            .manage_category_group {
+                display: flex;
+                flex-direction: column;
+                background-color: variable.$primary_color;
+                padding: 35px 30px;
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.083);
+                border-radius: 15px;
+                gap: 40px;
+
+                .data_hedder {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    h1 {
+                        font-size: variable.$base_section_hedder;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                        font-family: variable.$font_family_normal;
+                        font-weight: 600;
+
+                        .icon {
+                            color: variable.$secondary_color;
+                        }
+                    }
+
+                    .filter {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 20px;
+
+                        .main_search {
+                            padding: 11px 15px;
+                            border-radius: 10px;
+                            border: solid 1px rgb(variable.$assect_color, 0.17);
+                            width: 250px;
+                            outline: none;
+
+                            &.sub {
+                                width: 175px;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .custom_drop_holder {
+                            position: relative;
+                            cursor: pointer;
+                        }
+
+                        .btn {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 5px;
+                            padding: 10px 15px;
+                            border: solid 1px blue;
+                            background-color: blue;
+                            color: variable.$primary_color;
+                            border-radius: 10px;
+                            transform: all 2s;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: rgb(50, 50, 243);
+                                transform: scale(0.95);
+                            }
+                        }
+                    }
+                }
+
+                .category_table {
+                    border: none;
+                    padding: 0;
+                    background-color: rgb(variable.$assect_color, 0.013);
+                    border-radius: 10px;
+                    border-collapse: collapse;
+                    text-align: left;
+
+                    .row_input {
+                        color: #ad0ab5;
+                        font-size: 0.9rem;
+                    }
+
+                    th {
+                        border-bottom: solid 1px rgb(variable.$assect_color, 0.09);
+                        padding: 15px 15px;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        font-family: variable.$font_family_normal;
+                        background-color: rgb(variable.$assect_color, 0.051);
+                        font-style: italic;
+
+                        &:first-child {
+                            border-top-left-radius: 10px;
+                        }
+
+                        &:last-child {
+                            border-top-right-radius: 10px;
+                        }
+                    }
+
+                    tbody {
+                        tr:last-child {
+                            td {
+                                border-bottom: none !important;
+                            }
+                        }
+                    }
+
+                    .main_row {
+                        font-style: normal;
+                        cursor: pointer;
+
+                        td {
+                            border-bottom: solid 1px rgb(variable.$assect_color, 0.091);
+                            padding: 30px 15px;
+                            font-size: 1rem;
+                            font-weight: 400;
+                            font-family: variable.$font_family_normal;
+                            font-style: normal;
+
+                            .main {
+                                color: #ff6600;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    td {
+                        .icons {
+                            cursor: pointer;
+
+                            &.sub {
+                                font-size: 0.8rem;
+                                cursor: auto;
+                            }
+                        }
+                    }
+
+                    .subRow {
+                        background-color: rgb(variable.$success_color, 0.021);
+                        cursor: pointer;
+
+                        td {
+                            border-bottom: solid 1px rgb(variable.$assect_color, 0.071);
+                            padding: 20px 15px;
+                            font-style: italic;
+                            //padding-left: 30px;
+                            font-size: 0.9rem;
+                            font-weight: 400;
+                            font-family: variable.$font_family_normal;
+
+                            .main {
+                                color: variable.$success_color;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    .button_group {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 20px;
+
+                        .icon {
+                            cursor: pointer;
+                            font-size: 0.9rem;
+                            color: variable.$assect_color_light;
+
+                            &:hover {
+                                color: blue;
+                            }
+
+                            &.delete {
+                                color: variable.$danger_color;
+
+                                &:hover {
+                                    color: rgb(variable.$danger_color, 0.8);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .table_footer {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    font-family: variable.$font_family_normal;
+                    font-weight: 300;
+                    font-size: 0.9rem;
+                    font-style: italic;
+                }
+            }
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 69px 20px;
+            text-align: center;
+            width: 100%;
+            min-height: 400px;
+
+            img {
+                width: 100%;
+                max-width: 280px;
+                height: auto;
+                margin-bottom: 32px;
+                opacity: 0.9;
+                animation: float 4s ease-in-out infinite;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #1e293b;
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-size: 1rem;
+                color: #64748b;
+                max-width: 380px;
+                line-height: 1.6;
+                margin-bottom: 32px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .add-btn-primary {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background-color: #4f46e5;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 12px;
+                font-weight: 600;
+                font-size: 0.95rem;
+                border: none;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+
+                &:hover {
+                    background-color: #4338ca;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    }
+}

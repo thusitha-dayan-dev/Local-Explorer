@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('selected_services', function (Blueprint $table) {
+            $table->id();
+            $table->integer('selected_order_number')->nullable(); // for store user custom list
+            $table->foreignId('nearby_service_id')->constrained('nearby_services')->cascadeOnDelete();
+            $table->foreignId('trip_plan_id')->constrained('trip_plans')->cascadeOnDelete();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('selected_services');
+    }
+};

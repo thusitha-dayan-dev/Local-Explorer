@@ -1,0 +1,42 @@
+@use "../../layout/variable";
+
+.planer_main_layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .other_content_main_layout {
+        display: grid;
+
+        @include variable.lg {
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            height: calc(100vh - 80px);
+            overflow: hidden;
+        }
+
+        @include variable.xl {
+            gap: 50px;
+            grid-template-columns: minmax(0, 1fr) 450px;
+        }
+
+        @include variable.xxl {
+            grid-template-columns: minmax(0, 1fr) 600px;
+        }
+
+    }
+
+    .layout_right_content {
+        display: block;
+        padding: 0;
+
+        @include variable.lg {
+            display: flex;
+            flex-direction: column;
+            background-color: variable.$bg_section;
+            padding: 10px;
+            box-shadow: variable.$shadow_soft;
+            height: calc(100vh - 80px);
+        }
+    }
+}
