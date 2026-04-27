@@ -42,7 +42,7 @@ const Hero = () => {
         }
     };
 
-    const containerVariants : Variants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -50,7 +50,7 @@ const Hero = () => {
         }
     };
 
-    const fadeInUp : Variants = {
+    const fadeInUp: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
@@ -59,7 +59,7 @@ const Hero = () => {
         }
     };
 
-    const imageSideVariants : Variants = {
+    const imageSideVariants: Variants = {
         hidden: { opacity: 0, scale: 0.8 },
         visible: {
             opacity: 1,
@@ -111,31 +111,33 @@ const Hero = () => {
                                 <img src={heroImage} alt="Dambulla Landscapes" />
                             </div>
 
-                            <motion.div
-                                className="weather_glass_card"
-                                initial={{ opacity: 0, x: 50 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 1, duration: 0.8 }}
-                            >
-                                <div className="weather_head">
-                                    <div className="icon_wrapper">{getWeatherIcon(weather?.weather[0].main || '')}</div>
-                                    <div className="weather_info">
-                                        <span className="temp">{weather?.main.temp}</span>
-                                        <span className="condition">{weather?.weather[0].description}</span>
+                            {weather && (
+                                <motion.div
+                                    className="weather_glass_card"
+                                    initial={{ opacity: 0, x: 50 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 1, duration: 0.8 }}
+                                >
+                                    <div className="weather_head">
+                                        <div className="icon_wrapper">{getWeatherIcon(weather?.weather[0].main || '')}</div>
+                                        <div className="weather_info">
+                                            <span className="temp">{weather?.main.temp}</span>
+                                            <span className="condition">{weather?.weather[0].description}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="weather_stats">
-                                    <div className="w_stat">
-                                        <FontAwesomeIcon icon={faWind} />
-                                        <span>{Math.round((weather?.wind?.speed || 0) * 3.6)} km/h</span>
+                                    <div className="weather_stats">
+                                        <div className="w_stat">
+                                            <FontAwesomeIcon icon={faWind} />
+                                            <span>{Math.round((weather?.wind?.speed || 0) * 3.6)} km/h</span>
+                                        </div>
+                                        <div className="w_stat">
+                                            <FontAwesomeIcon icon={faTemperatureHigh} />
+                                            <span>RealFeel {Math.round(weather?.main?.feels_like || 0)}°</span>
+                                        </div>
                                     </div>
-                                    <div className="w_stat">
-                                        <FontAwesomeIcon icon={faTemperatureHigh} />
-                                        <span>RealFeel {Math.round(weather?.main?.feels_like || 0)}°</span>
-                                    </div>
-                                </div>
-                                <div className="location_label">Dambulla Live</div>
-                            </motion.div>
+                                    <div className="location_label">Dambulla Live</div>
+                                </motion.div>
+                            )}
 
                             <motion.div
                                 className="floating_card top_loc"
