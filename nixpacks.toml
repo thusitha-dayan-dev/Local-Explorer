@@ -3,6 +3,5 @@ nixPkgs = [
   "nodejs_20",
   "npm-10_x",
   "php",
-  "phpPackages.composer",
-  "phpExtensions.pdo_mysql"
+  "phpPackages.composer"
 ]
