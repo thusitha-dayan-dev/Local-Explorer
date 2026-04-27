@@ -80,6 +80,13 @@ Route::middleware(['admin.auth'])->group(function () {
             ->name('download.pdf');
 
         Route::get('/manage-service/reviews', [DashboardController::class, 'manageServiceReview'])->name('manage.services.review');
+
+        Route::get('/clear-all', function () {
+            Artisan::call('config:clear');
+            Artisan::call('cache:clear');
+
+            return 'All cache cleared!';
+        });
     });
 
     Route::group([], function () {
