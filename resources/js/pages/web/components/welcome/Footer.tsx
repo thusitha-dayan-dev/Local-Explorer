@@ -90,7 +90,7 @@ const Footer = () => {
                 <div className="custom_container">
                     <div className="bottom_inner">
                         <p>&copy; {currentYear} Local Explorer. All Rights Reserved.</p>
-                        <p>Designed with Dayan Gurusinghe</p>
+                        <p>Designed with Thusitha Dayan</p>
                     </div>
                 </div>
             </div>
