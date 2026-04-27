@@ -111,7 +111,7 @@ const Hero = () => {
                                 <img src={heroImage} alt="Dambulla Landscapes" />
                             </div>
 
-                            {weather && (
+                            {weather && weather.weather.length > 0 ? (
                                 <motion.div
                                     className="weather_glass_card"
                                     initial={{ opacity: 0, x: 50 }}
@@ -137,6 +137,10 @@ const Hero = () => {
                                     </div>
                                     <div className="location_label">Dambulla Live</div>
                                 </motion.div>
+                            ) : (
+                                <div className="weather_glass_card">
+                                    <p>Loading weather...</p>
+                                </div>
                             )}
 
                             <motion.div
