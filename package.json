@@ -24,6 +24,9 @@
         "sass-embedded": "^1.97.3",
         "typescript-eslint": "^8.23.0"
     },
+    "engines": {
+  "node": ">=20.0.0"
+},
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^7.1.0",
         "@fortawesome/free-brands-svg-icons": "^7.1.0",
