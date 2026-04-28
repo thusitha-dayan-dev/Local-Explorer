@@ -150,8 +150,8 @@ class PlaceController extends Controller
             'sub_category_id' => ['required', 'exists:sub_categories,id'],
             'main_image_path' => ['required'],
             'deleted_media_ids' => ['nullable', 'array'],
-            'media_path' => ['nullable', 'array', 'max:5'],
-            'media_path.*.file' => ['required', 'file', 'mimes:png,jpg,jpeg,mp4,mov', 'max:10240'],
+            'media_path' => ['nullable', 'array', 'max:4'],
+            'media_path.*.file' => ['required', 'file', 'mimes:png,jpg,jpeg,mp4,mov,webp', 'max:10240'],
             'media_path.*.type' => ['required', 'string', 'in:image,video'],
         ]);
 
