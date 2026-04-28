@@ -31,7 +31,7 @@ class PlaceController extends Controller
             'best_visit_time' => ['nullable', 'string'],
             'contact_number' => ['nullable', 'string', 'max:20'],
             'website_url' => ['nullable', 'url'],
-            'main_image_path' => ['required', 'image', 'mimes:png,jpg,jpeg,webP', 'max:5120'],
+            'main_image_path' => ['required', 'image', 'mimes:png,jpg,jpeg,webp', 'max:5120'],
             'search_tags' => ['required', 'string'],
             'selection_count' => ['nullable', 'integer'],
             'crowd_level' => ['required', 'in:low,medium,high'],
@@ -42,7 +42,7 @@ class PlaceController extends Controller
             'media_path.*.file' => [
                 'required',
                 'file',
-                'mimes:png,jpg,jpeg,mp4,mov,webP',
+                'mimes:png,jpg,jpeg,mp4,mov,webp',
                 'max:10240',
             ],
             'media_path.*.type' => ['required', 'string', 'in:image,video'],
