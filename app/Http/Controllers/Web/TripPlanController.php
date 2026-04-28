@@ -233,7 +233,7 @@ class TripPlanController extends Controller
     {
         $validated = $request->validate([
             'title' => ['required', 'min:3', 'max:150', 'string'],
-            'travel_date' => ['date', 'required'],
+            'travel_date' => ['required', 'date', 'after_or_equal:today'],
             'travel_mode' => ['required', 'string'],
             'id' => ['nullable', 'exists:trip_plans,id'],
         ]);

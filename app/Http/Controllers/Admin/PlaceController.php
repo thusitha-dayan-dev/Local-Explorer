@@ -37,7 +37,8 @@ class PlaceController extends Controller
             'crowd_level' => ['required', 'in:low,medium,high'],
             'category_id' => ['required', 'exists:categories,id'],
             'sub_category_id' => ['required', 'exists:sub_categories,id'],
-            'media_path' => ['nullable', 'array', 'max:5'],
+            'media_path' => ['nullable', 'array', 'max:4'],
+            /*
             'media_path.*.file' => [
                 'required',
                 'file',
@@ -45,6 +46,7 @@ class PlaceController extends Controller
                 'max:10240',
             ],
             'media_path.*.type' => ['required', 'string', 'in:image,video'],
+            */
         ]);
 
         $tempSavedFiles = [];
