@@ -259,7 +259,8 @@
 
         .img_section {
             position: relative;
-            height: 180px;
+            min-height: 180px;
+            height: auto;
 
             img {
                 width: 100%;
