@@ -16,7 +16,7 @@
     }
 
     .left_contener {
-        height: calc(100vh - 170px);
+        height: calc(100vh - 230px);
 
         @include variable.lg {
             position: sticky;
