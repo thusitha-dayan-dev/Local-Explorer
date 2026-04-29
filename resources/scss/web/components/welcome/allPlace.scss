@@ -1,7 +1,7 @@
 @use "../../layout/variable";
 
 .all_destinations_premium {
-    padding: 40px 0;
+    padding: 40px 10px;
     background: #f1f5f9;
 
     @include variable.md {
