@@ -65,7 +65,7 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <FontAwesomeIcon icon={faPhoneAlt} />
-                                    <span>+94 77 125 5254</span>
+                                    <span>+94 66 228 4567</span>
                                 </li>
                                 <li>
                                     <FontAwesomeIcon icon={faEnvelope} />

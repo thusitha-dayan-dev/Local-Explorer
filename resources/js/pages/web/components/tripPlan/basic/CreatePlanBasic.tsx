@@ -153,7 +153,12 @@ export const CreatePlanBasic: React.FC<CreatePlanBasicProps> = ({ data, setData,
 
                         <div className="input-group">
                             <label>Travel Date</label>
-                            <input type="date" value={data.travel_date} onChange={(e) => setData('travel_date', e.target.value)} />
+                            <input
+                                type="date"
+                                min={new Date().toISOString().split('T')[0]}
+                                value={data.travel_date}
+                                onChange={(e) => setData('travel_date', e.target.value)}
+                            />
                             {errors.travel_date && <span className="error">{errors.travel_date}</span>}
                         </div>
 

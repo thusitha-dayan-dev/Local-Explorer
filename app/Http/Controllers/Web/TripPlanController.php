@@ -248,7 +248,7 @@ class TripPlanController extends Controller
         ]));
 
         return redirect()->route('trip.plan.add.detail', ['id' => $trip->id])
-            ->with('success', 'Trip Plan Save Draft successfully!');
+            ->with('success', 'Trip plan draft saved successfully!');
 
     }
 
@@ -398,7 +398,7 @@ class TripPlanController extends Controller
 
     private function getRealRoadDistance($locations, $travelMode = 'car')
     {
-        $apiKey = env('VITE_GEOAPIFY_API_KEY');
+        $apiKey = config('services.geoapify.key');
 
         $waypoints = collect($locations)->map(function ($loc) {
             return $loc['lat'].','.$loc['lng'];
@@ -436,7 +436,10 @@ class TripPlanController extends Controller
     public function destroy(string $id)
     {
         try {
-            $plan = TripPlan::findOrFail($id);
+            $userId = Auth::guard('user')->id();
+            $plan = TripPlan::where('id', $id)
+                ->where('user_id', $userId)
+                ->firstOrFail();
             $plan->delete();
 
             return redirect()->back()->with('success', 'Plan deleted successfully!');

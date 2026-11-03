@@ -104,7 +104,7 @@ Route::middleware(['user.auth'])->group(function () {
 
     Route::group([], function () {
 
-        Route::delete('/delete/plan{id}', [TripPlanController::class, 'destroy'])
+        Route::delete('/delete/plan/{id}', [TripPlanController::class, 'destroy'])
             ->name('trip.plan.delete');
     });
 });

@@ -32,6 +32,10 @@ const Routing = ({ locations, setSummary, mod }: { locations: any[]; setSummary:
             return;
         }
 
+        if (!API_KEY) {
+            return;
+        }
+
         const points = locations.map((loc) => `${loc.lat},${loc.lng}`).join('|');
         const url = `https://api.geoapify.com/v1/routing?waypoints=${points}&mode=${mode}&apiKey=${API_KEY}`;
 
@@ -84,7 +88,7 @@ const Routing = ({ locations, setSummary, mod }: { locations: any[]; setSummary:
         return () => {
             if (polyline) map.removeLayer(polyline);
         };
-    }, [map, routeKey]);
+    }, [map, routeKey, mode]);
 
     return null;
 };

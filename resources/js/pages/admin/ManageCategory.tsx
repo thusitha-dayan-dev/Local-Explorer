@@ -3,6 +3,7 @@ import { faAngleDown, faAngleRight, faDownload, faFolderTree, faGripLines, faL, 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Head, Link, router, useForm, usePage } from '@inertiajs/react';
 import React, { useEffect, useState } from 'react';
+import { route } from 'ziggy-js';
 import { getDateTime } from '@/lib/utils';
 import type { Category } from '@/types/web';
 import notDataImage from '../../../assect/not_found.svg';
@@ -156,7 +157,7 @@ const ManageCategory = ({ categories, count, filters }: PageProps) => {
     }, [value]);
 
     const downloadCategoryPDF = () => {
-        const url = `http://localhost:8000/admin/download-pdf?type=categories`;
+        const url = route('admin.download.pdf', { type: 'categories' });
         window.open(url, '_blank');
     };
 

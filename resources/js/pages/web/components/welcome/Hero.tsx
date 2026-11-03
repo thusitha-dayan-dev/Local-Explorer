@@ -121,7 +121,7 @@ const Hero = () => {
                                     <div className="weather_head">
                                         <div className="icon_wrapper">{getWeatherIcon(weather?.weather[0].main || '')}</div>
                                         <div className="weather_info">
-                                            <span className="temp">{weather?.main.temp}</span>
+                                            <span className="temp">{Math.round(Number(weather?.main?.temp || 0))}°C</span>
                                             <span className="condition">{weather?.weather[0].description}</span>
                                         </div>
                                     </div>
@@ -132,14 +132,15 @@ const Hero = () => {
                                         </div>
                                         <div className="w_stat">
                                             <FontAwesomeIcon icon={faTemperatureHigh} />
-                                            <span>RealFeel {Math.round(weather?.main?.feels_like || 0)}°</span>
+                                            <span>RealFeel {Math.round(weather?.main?.feels_like || 0)}°C</span>
                                         </div>
                                     </div>
                                     <div className="location_label">Dambulla Live</div>
                                 </motion.div>
                             ) : (
                                 <div className="weather_glass_card">
-                                    <p>Loading weather...</p>
+                                    <div className="location_label">Dambulla, Sri Lanka</div>
+                                    <p style={{ margin: '8px 0 0 0', opacity: 0.8, fontSize: '0.875rem' }}>🌤️ Live Weather Ready</p>
                                 </div>
                             )}
 

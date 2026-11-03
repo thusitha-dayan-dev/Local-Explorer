@@ -13,10 +13,15 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        Admin::create([
-            'user_name' => 'Local Explorer Admim',
-            'email' => 'thusithadayan25@gmail.com',
-            'password' => Hash::make('8654871Aa@'),
-        ]);
+        $email = env('ADMIN_SEED_EMAIL', 'admin@localexplorer.com');
+        $password = env('ADMIN_SEED_PASSWORD', 'Admin@123456');
+
+        Admin::firstOrCreate(
+            ['email' => $email],
+            [
+                'user_name' => 'Local Explorer Admin',
+                'password' => Hash::make($password),
+            ]
+        );
     }
 }

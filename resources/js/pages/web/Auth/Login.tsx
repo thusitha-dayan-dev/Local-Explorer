@@ -77,6 +77,21 @@ const LoginForm = () => {
                             <p>Sign in to your account to continue.</p>
                         </div>
 
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px', marginBottom: '16px', fontSize: '0.85rem' }}>
+                            <div>
+                                <strong style={{ color: '#0f172a' }}>Demo User:</strong> <span style={{ color: '#64748b' }}>test@example.com</span>
+                            </div>
+                            <button
+                                type="button"
+                                style={{ background: '#2563eb', color: '#fff', border: 'none', borderRadius: '4px', padding: '4px 10px', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer' }}
+                                onClick={() => {
+                                    setData({ email: 'test@example.com', password: 'user123' });
+                                }}
+                            >
+                                Auto-Fill
+                            </button>
+                        </div>
+
                         <div className="login_form_input_main">
                             <div className="input_gorup">
                                 <label htmlFor="email">Email Address</label>

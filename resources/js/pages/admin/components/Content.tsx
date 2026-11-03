@@ -131,11 +131,11 @@ const Content = ({ chartData, PlaceCount, cardData, place, user }: ContentProps)
                         </div>
                     </div>
                     <div className="card">
-                        <div className="card_icon">{getWeatherIcon(weather?.weather[0].icon || '')}</div>
+                        <div className="card_icon">{getWeatherIcon(weather?.weather?.[0]?.icon || '')}</div>
                         <div className="card_content">
                             <span className="card_hedder">Today's Weather</span>
                             <div className="title_layout">
-                                <span className="title">{weather?.main.temp}°C</span>
+                                <span className="title">{weather?.main?.temp ? `${Math.round(weather.main.temp)}°C` : '--'}</span>
                             </div>
                             <span className="sub_title">
                                 {weather && weather.weather && weather.weather.length > 0 ? weather.weather[0].description : 'Loading weather...'}

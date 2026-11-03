@@ -21,7 +21,7 @@ const icons = {
 };
 
 // --- Routing Logic Component ---
-const Routing = ({ locations, setSummary }: { locations: any[]; setSummary: any }) => {
+const Routing = ({ locations, setSummary, mode = 'drive' }: { locations: any[]; setSummary: any; mode?: string }) => {
     const map = useMap();
     const API_KEY = import.meta.env.VITE_GEOAPIFY_API_KEY;
     const routeKey = JSON.stringify(locations.map((loc) => ({ lat: loc.lat, lng: loc.lng })));
@@ -32,8 +32,12 @@ const Routing = ({ locations, setSummary }: { locations: any[]; setSummary: any 
             return;
         }
 
+        if (!API_KEY) {
+            return;
+        }
+
         const points = locations.map((loc) => `${loc.lat},${loc.lng}`).join('|');
-        const url = `https://api.geoapify.com/v1/routing?waypoints=${points}&mode=drive&apiKey=${API_KEY}`;
+        const url = `https://api.geoapify.com/v1/routing?waypoints=${points}&mode=${mode}&apiKey=${API_KEY}`;
 
         let polyline: L.Polyline | null = null;
 
@@ -81,7 +85,7 @@ const Routing = ({ locations, setSummary }: { locations: any[]; setSummary: any 
         return () => {
             if (polyline) map.removeLayer(polyline);
         };
-    }, [map, routeKey]);
+    }, [map, routeKey, mode]);
 
     return null;
 };
@@ -131,7 +135,7 @@ export const PlanMap = ({ data }: { data: TripPlan }) => {
                     </div>
                     <div className="v_divider"></div>
                     <div className="stat_box">
-                        <span className="label">DRIVE TIME</span>
+                        <span className="label">{data.travel_mode === 'bike' ? 'BIKE TIME' : 'DRIVE TIME'}</span>
                         <span className="val">{FormatDuration(Number(data.estimated_duration_time))}</span>
                     </div>
                 </div>
@@ -140,7 +144,7 @@ export const PlanMap = ({ data }: { data: TripPlan }) => {
             <MapContainer center={defaultPosition} zoom={10} zoomControl={false} style={{ height: '100%', width: '100%' }}>
                 <TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
                 <MapResizer />
-                <Routing locations={combinedLocations} setSummary={setSummary} />
+                <Routing locations={combinedLocations} setSummary={setSummary} mode={data.travel_mode === 'bike' ? 'bicycle' : 'drive'} />
 
                 {combinedLocations.map((loc, idx) => (
                     <Marker key={`${loc.type}-${idx}`} position={[loc.lat, loc.lng]} icon={loc.type === 'place' ? icons.place : icons.service}>

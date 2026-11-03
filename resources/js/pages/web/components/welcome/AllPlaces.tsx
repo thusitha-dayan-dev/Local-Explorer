@@ -81,21 +81,20 @@ const AllPlaces = ({ allPlaces, categories, wishlistIds }: Props) => {
     };
 
     const checkWishlistIds = (id: number): boolean => {
-        return wishlistIds.includes(id);
+        return wishlistIds?.includes(id) ?? false;
     };
 
     const handelModelClose = () => {
-        setAddTripModel({ ...AddTripModal, isOpen: false, place: [] });
+        setAddTripModel({ isOpen: false, place: [] });
     };
 
     const handelModelOpen = (places: any) => {
-        if (!userInfore.id) {
+        if (!userInfore?.id) {
             router.visit(route('login'), {
-             data: { message: 'Please sign in to plan your trip.' }
-        });
-        } else{
-
-            setAddTripModel({ ...AddTripModal, isOpen: true, place: places });
+                data: { message: 'Please sign in to plan your trip.' },
+            });
+        } else {
+            setAddTripModel({ isOpen: true, place: places });
         }
     };
 

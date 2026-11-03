@@ -6,6 +6,10 @@ return [
         'key' => env('OPENWEATHER_API_KEY'),
     ],
 
+    'geoapify' => [
+        'key' => env('VITE_GEOAPIFY_API_KEY', env('GEOAPIFY_API_KEY')),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],

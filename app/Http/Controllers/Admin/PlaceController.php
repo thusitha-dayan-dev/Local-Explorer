@@ -121,7 +121,7 @@ class PlaceController extends Controller
                 'placeData' => $plc,
             ]);
         } catch (\Exception $e) {
-            return back()->with('error', 'Something went wronge or Place not found!');
+            return back()->with('error', 'Something went wrong or place not found!');
         }
     }
 

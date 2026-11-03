@@ -135,7 +135,7 @@ const ManageService = ({ services, serviceTypes, filters }: propsData) => {
     };
 
     const downloadPDF = () => {
-        const url = `http://localhost:8000/admin/download-pdf?type=services`;
+        const url = route('admin.download.pdf', { type: 'services' });
         window.open(url, '_blank');
     };
 

@@ -54,16 +54,16 @@ const MostPopularPlace = ({  wishlistIds }: PageProps) => {
     const { userInfore } = usePage<any>().props;
 
     const handelModelClose = () => {
-        setAddTripModel({ ...AddTripModal, isOpen: false, place: [] });
+        setAddTripModel({ isOpen: false, place: [] });
     };
 
     const handelModelOpen = (places: any) => {
-        if (!userInfore.id) {
+        if (!userInfore?.id) {
             router.visit(route('login'), {
-                data: { message: 'Please sign in to plan your trip.' }
+                data: { message: 'Please sign in to plan your trip.' },
             });
         } else {
-            setAddTripModel({ ...AddTripModal, isOpen: true, place: places });
+            setAddTripModel({ isOpen: true, place: places });
         }
     };
 
@@ -120,7 +120,7 @@ const MostPopularPlace = ({  wishlistIds }: PageProps) => {
     };
 
     const checkWishlistIds = (id: number): boolean => {
-        return wishlistIds.includes(id);
+        return wishlistIds?.includes(id) ?? false;
     };
 
     return (
@@ -147,8 +147,8 @@ const MostPopularPlace = ({  wishlistIds }: PageProps) => {
                                     <div className="image_wrapper">
                                         <img src={`/storage/${plc.main_image_path}`} alt={plc.place_name} loading="lazy" />
                                         <div className="badge_container">
-                                            <span className={`crowd_badge ${plc.crowd_level.toLowerCase()}`}>
-                                                <FontAwesomeIcon icon={faUsers} /> {plc.crowd_level} Crowd
+                                            <span className={`crowd_badge ${(plc.crowd_level || 'low').toLowerCase()}`}>
+                                                <FontAwesomeIcon icon={faUsers} /> {plc.crowd_level || 'Low'} Crowd
                                             </span>
                                         </div>
                                         <Link

@@ -14,6 +14,7 @@ const AdminProfileModal: React.FC<Props> = ({ isOpen, onClose, admin }) => {
     const [activeTab, setActiveTab] = useState<'general' | 'security'>('general');
 
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    const [passwordSuccess, setPasswordSuccess] = useState(false);
 
     useEffect(() => {
         if (isOpen && admin) {
@@ -74,11 +75,12 @@ const AdminProfileModal: React.FC<Props> = ({ isOpen, onClose, admin }) => {
 
     const submitPassword = (e: React.FormEvent) => {
         e.preventDefault();
+        setPasswordSuccess(false);
         post(route('admin.update.password'), {
             preserveScroll: true,
             onSuccess: () => {
                 reset('current_password', 'new_password', 'new_password_confirmation');
-                alert('Password updated successfully!');
+                setPasswordSuccess(true);
             },
         });
     };
@@ -172,6 +174,11 @@ const AdminProfileModal: React.FC<Props> = ({ isOpen, onClose, admin }) => {
                             </form>
                         ) : (
                             <form onSubmit={submitPassword} className="modal-form">
+                                {passwordSuccess && (
+                                    <div style={{ padding: '8px 12px', background: '#dcfce7', color: '#166534', borderRadius: '6px', fontSize: '0.875rem', marginBottom: '12px' }}>
+                                        ✓ Password updated successfully!
+                                    </div>
+                                )}
                                 <div className="input-group">
                                     <label>Current Password</label>
                                     <input

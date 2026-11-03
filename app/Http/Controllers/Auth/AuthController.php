@@ -200,7 +200,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'current_password' => ['required', 'current_password:admin'],
-            'new_password' => ['required', 'confirmed', Password::defaults()],
+            'new_password' => ['required', 'confirmed', \Illuminate\Validation\Rules\Password::defaults()],
         ]);
 
         $admin = auth()->guard('admin')->user();
@@ -287,7 +287,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('home')->with('success', 'Accuount Create Successfull');
+        return redirect()->route('home')->with('success', 'Account created successfully!');
     }
 
     public function webLogout(Request $request)

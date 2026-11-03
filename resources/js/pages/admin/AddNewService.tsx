@@ -146,7 +146,7 @@ const AddNewService = ({ serviceType }: PageProps) => {
         if (!files) return;
         const newFiles = Array.from(files) as File[];
         if (preview.otherImage.length + newFiles.length > 4) {
-            alert('Image Maxium Limit Reach');
+            alert('Maximum 4 images allowed.');
             return;
         }
 

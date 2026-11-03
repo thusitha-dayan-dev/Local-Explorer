@@ -77,7 +77,7 @@ const SignupForm = () => {
                                 <div className={`holder ${errors.full_name ? 'error_border' : data.full_name.length >= 3 ? 'success_border' : ''}`}>
                                     <input
                                         type="text"
-                                        placeholder="Thusitha"
+                                        placeholder="e.g. John Doe"
                                         value={data.full_name}
                                         onChange={(e) => setData('full_name', e.target.value)}
                                     />

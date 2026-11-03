@@ -144,7 +144,21 @@ const Nav = ({ index, userInfore }: PageProps) => {
                                 </Link>
                             </div>
                         ) : (
-                            <></>
+                            <div className="auth_buttons">
+                                <button
+                                    className="btn_login"
+                                    type="button"
+                                    onClick={() => {
+                                        setIsOpen(false);
+                                        setIsSettingModelOpen(true);
+                                    }}
+                                >
+                                    Settings
+                                </button>
+                                <Link href="/logout" method="post" as="button" className="btn_signup" onClick={() => setIsOpen(false)}>
+                                    Logout
+                                </Link>
+                            </div>
                         )}
                         <p className="copy">© 2026 Local Explorer</p>
                     </div>
