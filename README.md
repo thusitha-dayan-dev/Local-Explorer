@@ -436,6 +436,9 @@ local-explorer/
 * **Project Type**: University Undergraduate Capstone / Degree Project
 * **Contact & Profiles**:
   * GitHub: [@thusitha-dayan-dev](https://github.com/thusitha-dayan-dev)
+  * Website: [My Portfolio](https://thusithalabs.me/)
+  * LinkedIn: [Thusitha Dayan](https://www.linkedin.com/in/thusitha-dayan-881731411)
+  * Email: [thusitha.dayan.dev@gmail.com](thusitha.dayan.dev@gmail.com)
   * Repository: [thusitha-dayan-dev/Local-Explorer](https://github.com/thusitha-dayan-dev/Local-Explorer)
   * Portfolio / Designer Credit: *Designed with Thusitha Dayan*
 
